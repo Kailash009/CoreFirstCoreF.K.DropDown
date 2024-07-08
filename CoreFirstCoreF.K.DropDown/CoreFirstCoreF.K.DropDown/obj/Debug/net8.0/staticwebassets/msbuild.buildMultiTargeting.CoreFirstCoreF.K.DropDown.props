@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\CoreFirstCoreF.K.DropDown.props" />
+</Project>

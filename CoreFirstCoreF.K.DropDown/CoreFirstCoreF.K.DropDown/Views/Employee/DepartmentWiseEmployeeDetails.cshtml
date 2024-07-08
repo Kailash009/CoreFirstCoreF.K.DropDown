@@ -1,0 +1,44 @@
+﻿@model EmployeeDetailViewModel
+
+<h1>Department Wise Employee Details</h1>
+
+<form asp-action="DepartmentWiseEmployeeDetails" asp-controller="Employee" method="post">
+    <label>Select Department:</label>
+    <select asp-for="DepartmentId" asp-items="@ViewBag.departments" onchange="this.form.submit()">
+        <option disabled>--Select Department--</option>
+    </select>
+</form>
+<table class="table table-bordered mt-5">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>MobileNo</th>
+        <th>City</th>
+        <th>Salary</th>
+        <th>Department</th>
+    </tr>
+    @if (ViewBag.emp != null)
+    {
+        @foreach (var emp in @ViewBag.emp)
+        {
+            <tr>
+                <td>@emp.Name</td>
+                <td>@emp.Age</td>
+                <td>@emp.MobileNo</td>
+                <td>@emp.City</td>
+                <td>@emp.Salary</td>
+                <td>@emp.Department</td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td>
+                <h2 class="text-danger text-center">No employees Found for the selected department!!</h2>
+            </td>
+        </tr>
+    }
+</table>
+
+
